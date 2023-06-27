@@ -13,7 +13,8 @@ let map = L.map("map", {
 
 // thematische Layer
 let themaLayer = {
-    route: L.featureGroup()
+    route: L.featureGroup(),
+    forecast: L.featureGroup()
 }
 
 // WMTS Hintergrundlayer der eGrundkarte Tirol definieren
