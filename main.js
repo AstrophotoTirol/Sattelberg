@@ -33,7 +33,8 @@ let eGrundkarteTirol = {
     nomenklatur: L.tileLayer("https://wmts.kartetirol.at/gdi_nomenklatur/{z}/{x}/{y}.png", {
         attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`,
         pane: "overlayPane",
-    })
+    }),
+    
 }
 
 // Hintergrundlayer eGrundkarte Tirol mit GPX overlay
@@ -51,8 +52,8 @@ let layerControl = L.control.layers({
         eGrundkarteTirol.nomenklatur,
     ])
 }, {
-    "Zustiegsroute zum Photospot": themaLayer.route.addTo(map)
-}).addTo(map);
+    "Zustiegsroute zum Photospot": themaLayer.route.addTo(map),
+    "Vorhersage durch Klicken auf Karte": themaLayer.forecast.addTo(map)}).addTo(map);
 
 // Maßstab
 L.control.scale({
@@ -67,6 +68,7 @@ let controlElevation = L.control.elevation({
     theme: "zustieg"
 }).addTo(map);
 controlElevation.load("./data/sattelberg.gpx")
+
 
 // Wettervorhersage MET Norway
 async function showForecast(url, latlng) {
